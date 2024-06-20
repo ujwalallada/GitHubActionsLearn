@@ -1,0 +1,11 @@
+name: command-injection-demo
+on:
+  issue_comment:
+    types: [created]
+jobs:
+  comment-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Issue Comment
+        run: |
+          echo ${{ github.event.comment.body }}
